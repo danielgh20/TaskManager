@@ -1,0 +1,27 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,True}}
+{{extend 'layout.html'}}
+
+<h4/>{{=T('Running Jobs:')}}</h4>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h4/>{{=T('Tasks:')}}</h4>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{{block right_sidebar}}
+{{=A(T("Your links  AAA"), _href=URL('default','links'), _class='button', _style='margin-top: 1em;')}}
+{{=A(T("Administrative Interface"), _href=URL('admin','default','index'), _class='button', _style='margin-top: 1em;')}}
+
+<ul>
+  <li>{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
+  <li><a href="http://web2py.com">web2py.com</a></li>
+  <li><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
+</ul>
+{{end}}

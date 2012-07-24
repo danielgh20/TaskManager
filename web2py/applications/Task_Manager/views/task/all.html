@@ -1,0 +1,52 @@
+{{extend 'layout.html'}}
+
+{{block script_css}}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#mytable').dataTable( {
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "sDom":"<tp>"
+    } );     
+} );    
+</script>
+{{end}}
+
+{{=A('Manage All Tasks', _href=URL("manage"),_class='buttontext button')}}
+
+<br/>
+<br/>
+
+{{ if len(tasks) > 0 :}}
+<table id="mytable">
+<thead>
+<tr>
+<th>name</th>
+<th>tag</th>
+<th>enable</th>
+<th>nextrun</th>
+<th>kickoff</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th>name</th>
+<th>tag</th>
+<th>enable</th>
+<th>nextrun</th>
+<th>kickoff</th>
+</tr>
+</tfoot>
+<tbody>
+{{ for task in tasks:}}
+<tr>
+<td>{{=task.name}}</td>
+<td>{{=task.tag}}</td>
+<td>{{=task.enable}}</td>
+<td>{{=task.nextRun}}</td>
+<td>{{=A('kickoff', _href=URL("job","run", args=task.id))}}</td>
+</tr>
+{{pass}}
+</tbody>
+</table>
+{{pass}}

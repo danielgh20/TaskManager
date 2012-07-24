@@ -1,0 +1,28 @@
+{{extend 'layout.html'}}
+
+{{block script_css}}
+<link rel="stylesheet" type="text/css" href="../static/css/table.css" />
+{{end}}
+<br/>
+{{ if len(jobs) > 0 :}}
+<table class="gridtable">
+<tr>
+<th></th>
+<th>id</th>
+<th>task</th>
+<th>startTime</th>
+<th>endTime</th>
+<th>log</th>
+</tr>
+{{ for job in jobs:}}
+<tr>
+<td>{{=A('kill/restart', _href=URL())}}</td>
+<td>{{=job.id}}</td>
+<td>{{=job.task}}</td>
+<td>{{=job.startTime}}</td>
+<td>{{=job.endTime}}</td>
+<td>{{=job.log}}</td>
+</tr>
+{{pass}}
+</table>
+{{pass}}
